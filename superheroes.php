@@ -63,10 +63,30 @@ $superheroes = [
   ], 
 ];
 
-?>
+// Get the search query from the URL
+$query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+// Check if the query is empty (for full list) or if a specific superhero was searched
+if ($query) {
+    $found = false;
+    foreach ($superheroes as $superhero) {
+        if (strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0) {
+            $found = true;
+            echo "<h3>{$superhero['alias']}</h3>";
+            echo "<h4>{$superhero['name']}</h4>";
+            echo "<p>{$superhero['biography']}</p>";
+            break;
+        }
+    }
+    
+    if (!$found) {
+        echo "<p>Superhero not found</p>";
+    }
+} else {
+    echo "<ul>";
+    foreach ($superheroes as $superhero) {
+        echo "<li>{$superhero['alias']}</li>";
+    }
+    echo "</ul>";
+}
+?>

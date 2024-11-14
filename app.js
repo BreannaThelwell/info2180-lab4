@@ -1,10 +1,11 @@
 //used to fetch superhero data
 
 document.getElementById("searchButton").addEventListener("click", function() {
-    console.log("Search button clicked");  // Debugging statement
+    const searchInput = document.getElementById("searchInput").value.trim();
+    const sanitizedInput = encodeURIComponent(searchInput);  // Sanitize input to prevent injection
+    const url = searchInput ? `superheroes.php?query=${sanitizedInput}` : 'superheroes.php';
 
-    // Fetch data from superheroes.php
-    fetch('superheroes.php')  // Relative path to the PHP file
+    fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -12,8 +13,9 @@ document.getElementById("searchButton").addEventListener("click", function() {
             return response.text();
         })
         .then(data => {
-            console.log("Data fetched:", data);  // Debugging statement
-            alert(data);  // Display the data in an alert
+            document.getElementById("result").innerHTML = data;  // Display data in the result div
         })
-        .catch(error => console.error('Error fetching superhero data:', error));
+        .catch(error => {
+            console.error('Error fetching superhero data:', error);
+        });
 });
