@@ -1,9 +1,9 @@
 //used to fetch superhero data
 
 document.getElementById("searchButton").addEventListener("click", function() {
-    const searchInput = document.getElementById("searchInput").value.trim();
+    const searchField = document.getElementById("searchField").value.trim();
     const sanitizedInput = encodeURIComponent(searchInput);  // Sanitize input to prevent injection
-    const url = searchInput ? `superheroes.php?query=${sanitizedInput}` : 'superheroes.php';
+    const url = searchField ? `superheroes.php?query=${sanitizedInput}` : 'superheroes.php';
 
     fetch(url)
         .then(response => {
