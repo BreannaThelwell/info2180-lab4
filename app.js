@@ -10,20 +10,12 @@ document.getElementById("searchButton").addEventListener("click", function() {
             return response.text(); //html expectation
         })
         .then(data => {
-            // Format the superhero list by wrapping it in HTML tags as a string
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data, 'text/html');
-            const aliases = Array.from(doc.querySelectorAll('li')).map(li => li.textContent);
-            
-            // Construct the HTML-like structure as a string
-            let formattedList = "<ul>";
-            aliases.forEach(alias => {
-                formattedList += `<li>${alias}</li>`;
-            });
-            formattedList += "</ul>";
+            // Create a formatted string to display in the alert
+            let formattedList = "Superheroes:\n";
+            formattedList += data.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
 
             // Display the formatted list in an alert box
-            alert("Superheroes:\n" + formattedList);
+            alert(formattedList);
         })
         .catch(error => console.error('Error fetching superhero data:', error));
 });
