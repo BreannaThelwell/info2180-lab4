@@ -2,7 +2,7 @@
 
 document.getElementById("searchButton").addEventListener("click", function() {
     const searchField = document.getElementById("searchField").value.trim();
-    const sanitizedInput = encodeURIComponent(searchInput);  // Sanitize input to prevent injection
+    const sanitizedInput = encodeURIComponent(searchField);  // Sanitize input to prevent injection
     const url = searchField ? `superheroes.php?query=${sanitizedInput}` : 'superheroes.php';
 
     fetch(url)
