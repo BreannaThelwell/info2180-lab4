@@ -1,84 +1,84 @@
-*{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-/* Container styling */
+/*Container Styling*/
 .container {
-    width: 80%;
-    max-width: 600px;
-    background: white;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 10px;
+    text-align: left;
+    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    border-radius: 8px;
 }
 
 /* Heading styling */
-h1 {
+header h1 {
+    font-family: Impact, sans-serif;
     font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
-/* Input styling */
-#searchInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.search-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
     font-size: 16px;
+}
+
+.search-section label {
+    font-weight: bold;
+}
+
+#search {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /* Button styling */
-#searchButton {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+button {
+    background-color: red;
     color: white;
-    background-color: #007bff;
+    font-size: 14px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 4px;
 }
 
-#searchButton:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color:#b20000;
 }
 
 /* Result styling */
 #result {
-    margin-top: 20px;
-    text-align: left;
+    padding: 20px;
+    font-size: 16px;
 }
 
 /* Styling for superhero details */
 #result h3 {
-    font-size: 20px;
-    color: #007bff;
+    color: #0073e6;
 }
 
 #result h4 {
-    font-size: 18px;
+    font-weight: bold;
     color: #333;
-    margin-top: 5px;
 }
 
 #result p {
-    font-size: 16px;
     color: #666;
-    margin-top: 10px;
 }
 
 /* Message styling for "Superhero not found" */
